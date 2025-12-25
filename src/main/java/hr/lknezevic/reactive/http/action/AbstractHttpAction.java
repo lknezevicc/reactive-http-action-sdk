@@ -11,7 +11,6 @@ public non-sealed abstract class AbstractHttpAction<T> implements Action<T> {
     }
 
     protected abstract HttpRequestSpec<T> getRequestSpec();
-    protected abstract String getUrl();
 
     @Override
     public Mono<T> execute() {
