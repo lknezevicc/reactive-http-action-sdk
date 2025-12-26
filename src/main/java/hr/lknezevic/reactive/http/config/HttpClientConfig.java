@@ -1,6 +1,7 @@
 package hr.lknezevic.reactive.http.config;
 
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -35,5 +36,29 @@ public record HttpClientConfig(
                 null,
                 0,
                 RetryConfig.defaults());
+    }
+
+    public HttpClientConfig withHeader(String key, String value) {
+        Map<String, String> merged = new HashMap<>(this.headers);
+        merged.put(key, value);
+        return copyWithHeaders(merged);
+    }
+
+    public HttpClientConfig withHeaders(Map<String, String> additionalHeaders) {
+        Map<String, String> merged = new HashMap<>(this.headers);
+        merged.putAll(additionalHeaders);
+        return copyWithHeaders(merged);
+    }
+
+    private HttpClientConfig copyWithHeaders(Map<String, String> headers) {
+        return new HttpClientConfig(
+                baseUrl,
+                headers,
+                connectTimeout,
+                readTimeout,
+                writeTimeout,
+                maxInMemorySizeBytes,
+                retry
+        );
     }
 }
