@@ -3,7 +3,7 @@ package hr.lknezevic.reactive.http.action;
 import hr.lknezevic.reactive.http.transport.HttpExecutor;
 import reactor.core.publisher.Mono;
 
-public non-sealed abstract class AbstractHttpAction<T> implements Action<T> {
+public non-sealed abstract class AbstractHttpAction<T> implements HttpAction<T> {
     protected final HttpExecutor httpExecutor;
 
     protected AbstractHttpAction(HttpExecutor httpExecutor) {

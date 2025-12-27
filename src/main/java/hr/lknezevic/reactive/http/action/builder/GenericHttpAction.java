@@ -1,5 +1,7 @@
-package hr.lknezevic.reactive.http.action;
+package hr.lknezevic.reactive.http.action.builder;
 
+import hr.lknezevic.reactive.http.action.AbstractHttpAction;
+import hr.lknezevic.reactive.http.action.HttpRequestSpec;
 import hr.lknezevic.reactive.http.transport.HttpExecutor;
 
 final class GenericHttpAction<T> extends AbstractHttpAction<T> {

@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class WebClientHttpExecutor implements HttpExecutor {
+public final class WebClientHttpExecutor implements HttpExecutor {
     private final static List<HttpMethod> NOT_SUPPORTED_HTTP_METHODS =
             List.of(HttpMethod.HEAD, HttpMethod.TRACE, HttpMethod.OPTIONS);
     private final WebClient webClient;
